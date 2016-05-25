@@ -1,0 +1,30 @@
+function [RETURN_CODE] = CREATE_ERROR_HANDLER(ENTRY_POINT,STACK_SIZE)
+
+global RETURN_CODE_TYPE;
+global Process_Set;
+global OPERATING_MODE_TYPE;
+global Current_Partition_STATUS;
+
+flag = isempty(Process_Set{1,255});
+if  flag == 0
+    RETURN_CODE =  RETURN_CODE_TYPE.NO_ACTION
+    return;
+end
+
+if STACK_SIZE <0 || STACK_SIZE > 31
+    RETURN_CODE = RETURN_CODE_TYPE.INVALID_CONFIG
+    return;
+end
+
+if Current_Partition_STATUS.OPERATING_MODE == OPERATING_MODE_TYPE.NORMAL
+    RETURN_CODE = RETURN_CODE_TYPE.INVALID_MODE
+    return;
+end
+
+Process_Set{1,255} = PROCESS_TYPE(nan,'ERROR_HANDLER_PROCESS',1, nan,239,1,nan,nan,ENTRY_POINT,STACK_SIZE,239,nan);
+
+RETURN_CODE = RETURN_CODE_TYPE.NO_ERROR
+
+end
+    
+   
