@@ -11,9 +11,9 @@ if flag == 0
 end
 
 for i =1:255
-    if Process_Set{1,i}.NAME == PROCESS_NAME;
+    if Process_Set{1,i}.NAME == PROCESS_NAME
         PROCESS_ID = Process_Set{1,i}.ID
         RETURN_CODE = RETURN_CODE_TYPE.NO_ERROR
+    break;
     end
-    return;
 end

@@ -52,7 +52,7 @@ Ready_Processes_set= cell(1,255);
 global Dormant_Processes_set
 Dormant_Processes_set=cell(1,255);
 global Running_Process;
-Running_Process = ;
+Running_Process = cell(1,1);
 global Waiting_Processes_set
 Waiting_Processes_set=cell(1,255);
 
@@ -66,18 +66,7 @@ Current_Partition_Timer=cell(1,255);
 global INFINITE_TIME_VALUE;
 INFINITE_TIME_VALUE=-1;
 
-global Current_Process
-Current_Process.ID=6;
-Current_Process.DEADLINE_TIME=10;
-Current_Process.CURRENT_PRIORITY =3;
-Current_Process.PROCESS_STATE =2;
-Current_Process.PERIOD =0;
-Current_Process.TIME_CAPACITY =5;
-Current_Process.ENTRY_POIN =20;
-Current_Process.STACK_SIZE =200;
-Current_Process.BASE_PRIORITY =0;
-Current_Process.DEADLINE=30;
-Current_Process.NAME ='running';
+
 
 global Previous_Process
 Previous_Process.ID=5;
